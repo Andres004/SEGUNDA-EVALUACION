@@ -1,32 +1,5 @@
-const servicios = [
-    { id: 1, nombre: "Pagina Web Basica", desc: "Hacemos tu HTML y CSS para tu tarea.", cat: "Programacion", precio: "20 Bs" },
-    { id: 2, nombre: "Tienda para vender", desc: "Un sitio para vender cosas online.", cat: "Programacion", precio: "50 Bs" },
-    { id: 3, nombre: "Hacer Logo", desc: "Hacemos un logo simple en Paint o Photoshop.", cat: "Graficos", precio: "10 Bs" },
-    { id: 4, nombre: "Diseño de Banner", desc: "Un banner para tu Facebook o canal.", cat: "Graficos", precio: "15 Bs" },
-    { id: 5, nombre: "Subir Fotos a Face", desc: "Manejamos tu pagina de Facebook.", cat: "Redes", precio: "10 Bs / semana" },
-    { id: 6, nombre: "Publicidad Basica", desc: "Hacemos que mas gente vea tu pagina.", cat: "Redes", precio: "15 Bs / semana" }
-];
-
-const gridServicios = document.getElementById('grid-servicios');
 const botonesFiltro = document.querySelectorAll('.btn-filtro');
-
-function renderizarCatalogo(lista) {
-    gridServicios.innerHTML = '';
-    lista.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'card';
-        div.innerHTML = `
-            <div class="card-img">IMG_${item.id}</div>
-            <span class="badge">${item.cat}</span>
-            <h3>${item.nombre}</h3>
-            <p>${item.desc}</p>
-            <p class="precio">Costo: ${item.precio}</p>
-            <button class="btn-primary">Pedir</button>
-        `;
-        gridServicios.appendChild(div);
-    });
-}
-renderizarCatalogo(servicios);
+const tarjetas = document.querySelectorAll('.card');
 
 botonesFiltro.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -34,12 +7,14 @@ botonesFiltro.forEach(btn => {
         e.target.classList.add('activo');
         
         const categoria = e.target.getAttribute('data-cat');
-        if(categoria === 'Todos') {
-            renderizarCatalogo(servicios);
-        } else {
-            const filtrados = servicios.filter(s => s.cat === categoria);
-            renderizarCatalogo(filtrados);
-        }
+        
+        tarjetas.forEach(tarjeta => {
+            if(categoria === 'Todos' || tarjeta.getAttribute('data-cat') === categoria) {
+                tarjeta.style.display = 'flex';
+            } else {
+                tarjeta.style.display = 'none';
+            }
+        });
     });
 });
 
