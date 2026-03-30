@@ -25,13 +25,14 @@ document.getElementById('btn-menu').addEventListener('click', () => {
 const formulario = document.getElementById('formulario-contacto');
 const inputNombre = document.getElementById('nombre');
 const feedback = document.getElementById('mensaje-feedback');
+const selectServicio = document.getElementById('tipo-servicio');
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     
     const nombre = inputNombre.value.trim();
     const correo = document.getElementById('correo').value.trim();
-    const tipo = document.getElementById('tipo-servicio').value;
+    const tipo = selectServicio.value;
     const mensaje = document.getElementById('mensaje').value.trim();
     
     const soloNumeros = /^\d+$/;
@@ -64,4 +65,16 @@ formulario.addEventListener('submit', (e) => {
 
 inputNombre.addEventListener('input', () => {
     inputNombre.setCustomValidity('');
+});
+
+const botonesPedir = document.querySelectorAll('.card .btn-primary');
+botonesPedir.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const tarjeta = e.target.closest('.card');
+        const categoria = tarjeta.getAttribute('data-cat');
+        
+        selectServicio.value = categoria;
+        
+        document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+    });
 });
