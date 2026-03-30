@@ -20,12 +20,14 @@ body {
     color: $color-blanco;
     padding: 8px 16px;
     border: 1px solid $color-blanco;
+    border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
 
     &:hover {
-        background: $color-gris-medio;
+        background: $color-acento;
+        color: $color-negro;
     }
 }

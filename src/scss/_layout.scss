@@ -4,7 +4,7 @@
     background: $color-negro;
     color: $color-blanco;
     padding: 10px;
-    border-bottom: 2px solid $color-gris-medio;
+    border-bottom: 2px solid $color-acento;
     
     .header-container {
         display: flex;
@@ -16,13 +16,15 @@
         font-weight: bold;
         font-size: 1.2rem;
         text-transform: uppercase;
+        color: $color-blanco;
     }
 
     .btn-menu {
-        background: $color-gris-medio;
+        background: $color-gris-oscuro;
         border: 1px solid $color-blanco;
         color: $color-blanco;
-        padding: 5px;
+        padding: 5px 10px;
+        border-radius: 4px;
         cursor: pointer;
         display: block;
 
@@ -34,11 +36,11 @@
     .nav-menu {
         display: none;
         position: absolute;
-        top: 50px;
+        top: 60px;
         left: 0;
         width: 100%;
         background: $color-negro;
-        border-bottom: 2px solid $color-gris-medio;
+        border-bottom: 2px solid $color-acento;
         
         &.activo {
             display: block;
@@ -72,7 +74,7 @@
                 }
 
                 &:hover {
-                    background-color: $color-gris-oscuro;
+                    color: $color-acento;
                 }
             }
         }
@@ -105,7 +107,6 @@
         text-align: center;
         margin-bottom: 20px;
         color: $color-negro;
-        text-decoration: underline;
     }
 
     .filtros {
@@ -120,6 +121,7 @@
             border: 1px solid $color-negro;
             background: $color-blanco;
             color: $color-negro;
+            border-radius: 20px;
             cursor: pointer;
 
             &.activo, &:hover {
@@ -148,7 +150,8 @@
     .card {
         background: $color-blanco;
         padding: 15px;
-        border: 2px solid $color-negro;
+        border: 2px solid $color-acento;
+        border-radius: 8px;
         display: flex;
         flex-direction: column;
 
@@ -157,16 +160,18 @@
             height: 150px;
             object-fit: cover;
             border: 1px solid $color-negro;
+            border-radius: 4px;
             margin-bottom: 10px;
             background-color: $color-gris-claro;
         }
 
         .badge {
             align-self: flex-start;
-            background: $color-gris-oscuro;
+            background: $color-gris-medio;
             color: $color-blanco;
             padding: 2px 5px;
             font-size: 0.7rem;
+            border-radius: 4px;
             text-transform: uppercase;
             margin-bottom: 5px;
         }
@@ -186,7 +191,7 @@
         .precio {
             font-weight: bold;
             color: $color-negro;
-            border-top: 1px solid $color-gris-claro;
+            border-top: 1px solid $color-gris-medio;
             padding-top: 5px;
             margin-bottom: 10px;
         }
@@ -203,7 +208,8 @@
         margin: 0 auto;
         background: $color-gris-claro;
         padding: 20px;
-        border: 2px solid $color-negro;
+        border: 2px solid $color-acento;
+        border-radius: 8px;
     }
 
     h2 {
@@ -225,6 +231,7 @@
             width: 100%;
             padding: 8px;
             border: 1px solid $color-negro;
+            border-radius: 4px;
             font-family: $fuente-clase;
             background-color: $color-blanco;
         }
@@ -234,6 +241,7 @@
         display: none;
         padding: 8px;
         border: 1px solid $color-negro;
+        border-radius: 4px;
         margin-bottom: 10px;
         text-align: center;
         font-weight: bold;
@@ -263,5 +271,5 @@
     text-align: center;
     padding: 15px;
     font-size: 0.8rem;
-    border-top: 2px solid $color-gris-medio;
+    border-top: 2px solid $color-acento;
 }
