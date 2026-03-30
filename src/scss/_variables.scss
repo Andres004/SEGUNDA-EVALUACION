@@ -1,20 +1,10 @@
-$primario: #0ea5e9;
-$secundario: #0284c7;
-$oscuro: #0f172a;
-$claro: #f8fafc;
-$texto: #334155;
-$blanco: #ffffff;
-$error: #ef4444;
-$exito: #10b981;
+$color-negro: #053908;
+$color-gris-oscuro: #0a3c0b;
+$color-gris-medio: #105c08;
+$color-gris-claro: #abadac;
+$color-blanco: #ffffff;
 
-$fuente-base: system-ui, -apple-system, sans-serif;
+$color-error: #300d0d;
+$color-exito: #a8ffa8;
 
-@mixin sombra-suave {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-}
+$fuente-clase: Arial, Helvetica, sans-serif;

@@ -1,28 +1,28 @@
 @use 'variables' as *;
 
 .header {
-    background: $blanco;
-    padding: 1rem 5%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background: $color-negro;
+    color: $color-blanco;
+    padding: 10px;
+    border-bottom: 2px solid $color-gris-medio;
     
     .header-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
     }
 
     .logo {
         font-weight: bold;
-        font-size: 1.5rem;
-        color: $primario;
+        font-size: 1.2rem;
+        text-transform: uppercase;
     }
 
     .btn-menu {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
+        background: $color-gris-medio;
+        border: 1px solid $color-blanco;
+        color: $color-blanco;
+        padding: 5px;
         cursor: pointer;
         display: block;
 
@@ -34,10 +34,11 @@
     .nav-menu {
         display: none;
         position: absolute;
-        top: 60px;
+        top: 50px;
         left: 0;
         width: 100%;
-        background: $blanco;
+        background: $color-negro;
+        border-bottom: 2px solid $color-gris-medio;
         
         &.activo {
             display: block;
@@ -46,6 +47,7 @@
         @media (min-width: 768px) {
             display: block;
             position: static;
+            border: none;
         }
 
         ul {
@@ -55,18 +57,22 @@
 
             @media (min-width: 768px) {
                 flex-direction: row;
-                gap: 1.5rem;
+                gap: 10px;
             }
 
             a {
                 display: block;
-                padding: 1rem;
+                padding: 10px;
                 text-decoration: none;
-                color: $texto;
-                font-weight: 500;
+                color: $color-blanco;
+                border-bottom: 1px solid $color-gris-oscuro;
+
+                @media (min-width: 768px) {
+                    border: none;
+                }
 
                 &:hover {
-                    color: $primario;
+                    background-color: $color-gris-oscuro;
                 }
             }
         }
@@ -74,50 +80,51 @@
 }
 
 .hero {
-    background: $oscuro;
-    color: $blanco;
+    background: $color-gris-oscuro;
+    color: $color-blanco;
     text-align: center;
-    padding: 4rem 5%;
+    padding: 30px 10px;
+    border-bottom: 2px solid $color-negro;
 
     h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: 2rem;
+        margin-bottom: 10px;
     }
 
     p {
-        margin-bottom: 2rem;
+        margin-bottom: 20px;
+        color: $color-gris-claro;
     }
 }
 
 .seccion-servicios {
-    padding: 4rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 20px 10px;
+    background-color: $color-gris-claro;
 
     h2 {
         text-align: center;
-        margin-bottom: 2rem;
-        color: $oscuro;
+        margin-bottom: 20px;
+        color: $color-negro;
+        text-decoration: underline;
     }
 
     .filtros {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 3rem;
+        gap: 5px;
+        margin-bottom: 20px;
 
         .btn-filtro {
-            padding: 8px 16px;
-            border: 2px solid $primario;
-            background: transparent;
-            color: $primario;
-            border-radius: 20px;
+            padding: 5px 10px;
+            border: 1px solid $color-negro;
+            background: $color-blanco;
+            color: $color-negro;
             cursor: pointer;
 
             &.activo, &:hover {
-                background: $primario;
-                color: $blanco;
+                background: $color-negro;
+                color: $color-blanco;
             }
         }
     }
@@ -125,7 +132,9 @@
     .grid-servicios {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 15px;
+        max-width: 1000px;
+        margin: 0 auto;
 
         @media (min-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
@@ -137,107 +146,126 @@
     }
 
     .card {
-        background: $blanco;
-        padding: 20px;
-        border-radius: 8px;
-        border: 1px solid #e2e8f0;
+        background: $color-blanco;
+        padding: 15px;
+        border: 2px solid $color-negro;
         display: flex;
         flex-direction: column;
-        @include sombra-suave;
+
+        .card-img {
+            width: 100%;
+            height: 150px;
+            background-color: $color-gris-medio;
+            border: 1px solid $color-negro;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-blanco;
+            font-weight: bold;
+        }
 
         .badge {
             align-self: flex-start;
-            background: $claro;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
+            background: $color-gris-oscuro;
+            color: $color-blanco;
+            padding: 2px 5px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
 
         h3 {
-            color: $oscuro;
-            margin-bottom: 10px;
+            color: $color-negro;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
 
         p {
             flex-grow: 1;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
         }
 
         .precio {
             font-weight: bold;
-            color: $primario;
-            margin-bottom: 15px;
+            color: $color-negro;
+            border-top: 1px solid $color-gris-claro;
+            padding-top: 5px;
+            margin-bottom: 10px;
         }
     }
 }
 
 .seccion-contacto {
-    background: $claro;
-    padding: 4rem 5%;
+    background: $color-blanco;
+    padding: 30px 10px;
+    border-top: 2px solid $color-negro;
 
     .contacto-wrapper {
-        max-width: 600px;
+        max-width: 500px;
         margin: 0 auto;
-        background: $blanco;
-        padding: 2rem;
-        border-radius: 8px;
-        @include sombra-suave;
+        background: $color-gris-claro;
+        padding: 20px;
+        border: 2px solid $color-negro;
     }
 
     h2 {
         text-align: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 15px;
+        text-transform: uppercase;
     }
 
     .campo {
-        margin-bottom: 1rem;
+        margin-bottom: 10px;
 
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             font-weight: bold;
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #cbd5e1;
-            border-radius: 4px;
-            font-family: $fuente-base;
+            padding: 8px;
+            border: 1px solid $color-negro;
+            font-family: $fuente-clase;
+            background-color: $color-blanco;
         }
     }
 
     .feedback-oculto {
         display: none;
-        padding: 10px;
-        border-radius: 4px;
-        margin-bottom: 1rem;
+        padding: 8px;
+        border: 1px solid $color-negro;
+        margin-bottom: 10px;
         text-align: center;
+        font-weight: bold;
 
         &.error {
             display: block;
-            background: #fef2f2;
-            color: $error;
-            border: 1px solid $error;
+            background: $color-error;
+            color: $color-blanco;
         }
 
         &.exito {
             display: block;
-            background: #ecfdf5;
-            color: $exito;
-            border: 1px solid $exito;
+            background: $color-exito;
+            color: $color-negro;
         }
     }
 
     .btn-primary {
         width: 100%;
+        text-transform: uppercase;
     }
 }
 
 .footer {
-    background: $oscuro;
-    color: $blanco;
+    background: $color-negro;
+    color: $color-blanco;
     text-align: center;
-    padding: 2rem;
+    padding: 15px;
+    font-size: 0.8rem;
+    border-top: 2px solid $color-gris-medio;
 }

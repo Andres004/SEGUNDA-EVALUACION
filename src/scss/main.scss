@@ -8,24 +8,24 @@
 }
 
 body {
-    font-family: $fuente-base;
-    color: $texto;
-    background: $blanco;
-    line-height: 1.6;
+    font-family: $fuente-clase;
+    color: $color-negro;
+    background: $color-blanco;
+    line-height: 1.4;
 }
 
 .btn-primary {
     display: inline-block;
-    background: $primario;
-    color: $blanco;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
+    background: $color-gris-oscuro;
+    color: $color-blanco;
+    padding: 8px 16px;
+    border: 1px solid $color-blanco;
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
+    text-align: center;
 
     &:hover {
-        background: $secundario;
+        background: $color-gris-medio;
     }
 }

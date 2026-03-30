@@ -1,35 +1,33 @@
-// 1. Datos del catálogo
 const servicios = [
-    { id: 1, nombre: "Sitio Web Corporativo", desc: "Desarrollo de páginas web estáticas y dinámicas.", cat: "Desarrollo Web", precio: "$300 USD" },
-    { id: 2, nombre: "Tienda Online (E-commerce)", desc: "Plataformas de venta online con pasarela de pago.", cat: "Desarrollo Web", precio: "$600 USD" },
-    { id: 3, nombre: "Auditoría UX", desc: "Evaluación de usabilidad de tu plataforma actual.", cat: "Diseño UI/UX", precio: "$150 USD" },
-    { id: 4, nombre: "Diseño de App Móvil", desc: "Prototipado y diseño de interfaces para iOS y Android.", cat: "Diseño UI/UX", precio: "$400 USD" },
-    { id: 5, nombre: "Gestión de Redes", desc: "Creación de contenido para Instagram y Facebook.", cat: "Marketing Digital", precio: "$200 / mes" },
-    { id: 6, nombre: "Google Ads", desc: "Campañas de posicionamiento SEM efectivas.", cat: "Marketing Digital", precio: "$250 / mes" }
+    { id: 1, nombre: "Pagina Web Basica", desc: "Hacemos tu HTML y CSS para tu tarea.", cat: "Programacion", precio: "20 Bs" },
+    { id: 2, nombre: "Tienda para vender", desc: "Un sitio para vender cosas online.", cat: "Programacion", precio: "50 Bs" },
+    { id: 3, nombre: "Hacer Logo", desc: "Hacemos un logo simple en Paint o Photoshop.", cat: "Graficos", precio: "10 Bs" },
+    { id: 4, nombre: "Diseño de Banner", desc: "Un banner para tu Facebook o canal.", cat: "Graficos", precio: "15 Bs" },
+    { id: 5, nombre: "Subir Fotos a Face", desc: "Manejamos tu pagina de Facebook.", cat: "Redes", precio: "10 Bs / semana" },
+    { id: 6, nombre: "Publicidad Basica", desc: "Hacemos que mas gente vea tu pagina.", cat: "Redes", precio: "15 Bs / semana" }
 ];
 
 const gridServicios = document.getElementById('grid-servicios');
 const botonesFiltro = document.querySelectorAll('.btn-filtro');
 
-// 2. Renderizado dinámico
 function renderizarCatalogo(lista) {
     gridServicios.innerHTML = '';
     lista.forEach(item => {
         const div = document.createElement('div');
         div.className = 'card';
         div.innerHTML = `
+            <div class="card-img">IMG_${item.id}</div>
             <span class="badge">${item.cat}</span>
             <h3>${item.nombre}</h3>
             <p>${item.desc}</p>
-            <p class="precio">${item.precio}</p>
-            <button class="btn-primary">Me interesa</button>
+            <p class="precio">Costo: ${item.precio}</p>
+            <button class="btn-primary">Pedir</button>
         `;
         gridServicios.appendChild(div);
     });
 }
 renderizarCatalogo(servicios);
 
-// 3. Lógica de Filtros
 botonesFiltro.forEach(btn => {
     btn.addEventListener('click', (e) => {
         botonesFiltro.forEach(b => b.classList.remove('activo'));
@@ -45,12 +43,10 @@ botonesFiltro.forEach(btn => {
     });
 });
 
-// 4. Interacción Menú Móvil
 document.getElementById('btn-menu').addEventListener('click', () => {
     document.getElementById('nav-menu').classList.toggle('activo');
 });
 
-// 5. Validación del Formulario
 const formulario = document.getElementById('formulario-contacto');
 const inputNombre = document.getElementById('nombre');
 const feedback = document.getElementById('mensaje-feedback');
@@ -66,9 +62,8 @@ formulario.addEventListener('submit', (e) => {
     const soloNumeros = /^\d+$/;
     const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Validación customizada para el nombre
     if (soloNumeros.test(nombre)) {
-        inputNombre.setCustomValidity('El nombre no puede ser solo números.');
+        inputNombre.setCustomValidity('No pongas solo numeros en el nombre.');
         inputNombre.reportValidity();
         return;
     } else {
@@ -77,18 +72,18 @@ formulario.addEventListener('submit', (e) => {
 
     if (!nombre || !correo || !tipo || !mensaje) {
         feedback.className = 'feedback-oculto error';
-        feedback.textContent = 'Todos los campos son obligatorios.';
+        feedback.textContent = 'Faltan datos obligatorios.';
         return;
     }
 
     if (!formatoCorreo.test(correo)) {
         feedback.className = 'feedback-oculto error';
-        feedback.textContent = 'Ingresa un correo válido.';
+        feedback.textContent = 'Ese correo esta mal escrito.';
         return;
     }
 
     feedback.className = 'feedback-oculto exito';
-    feedback.textContent = `¡Gracias ${nombre}! Formulario validado correctamente.`;
+    feedback.textContent = `Bien! Se envio el mensaje de ${nombre}.`;
     formulario.reset();
 });
 
