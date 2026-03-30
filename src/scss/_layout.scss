@@ -1,0 +1,243 @@
+@use 'variables' as *;
+
+.header {
+    background: $blanco;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: $primario;
+    }
+
+    .btn-menu {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: block;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: $blanco;
+        
+        &.activo {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            display: block;
+            position: static;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+
+            @media (min-width: 768px) {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+
+            a {
+                display: block;
+                padding: 1rem;
+                text-decoration: none;
+                color: $texto;
+                font-weight: 500;
+
+                &:hover {
+                    color: $primario;
+                }
+            }
+        }
+    }
+}
+
+.hero {
+    background: $oscuro;
+    color: $blanco;
+    text-align: center;
+    padding: 4rem 5%;
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 2rem;
+    }
+}
+
+.seccion-servicios {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: $oscuro;
+    }
+
+    .filtros {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 3rem;
+
+        .btn-filtro {
+            padding: 8px 16px;
+            border: 2px solid $primario;
+            background: transparent;
+            color: $primario;
+            border-radius: 20px;
+            cursor: pointer;
+
+            &.activo, &:hover {
+                background: $primario;
+                color: $blanco;
+            }
+        }
+    }
+
+    .grid-servicios {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .card {
+        background: $blanco;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        @include sombra-suave;
+
+        .badge {
+            align-self: flex-start;
+            background: $claro;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: $oscuro;
+            margin-bottom: 10px;
+        }
+
+        p {
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: $primario;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.seccion-contacto {
+    background: $claro;
+    padding: 4rem 5%;
+
+    .contacto-wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+        background: $blanco;
+        padding: 2rem;
+        border-radius: 8px;
+        @include sombra-suave;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .campo {
+        margin-bottom: 1rem;
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-family: $fuente-base;
+        }
+    }
+
+    .feedback-oculto {
+        display: none;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        text-align: center;
+
+        &.error {
+            display: block;
+            background: #fef2f2;
+            color: $error;
+            border: 1px solid $error;
+        }
+
+        &.exito {
+            display: block;
+            background: #ecfdf5;
+            color: $exito;
+            border: 1px solid $exito;
+        }
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+.footer {
+    background: $oscuro;
+    color: $blanco;
+    text-align: center;
+    padding: 2rem;
+}

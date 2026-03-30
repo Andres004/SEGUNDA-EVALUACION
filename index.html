@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova - Servicios Digitales</title>
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
 
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">TechNova.</div>
+            <button id="btn-menu" class="btn-menu">☰</button>
+            <nav id="nav-menu" class="nav-menu">
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Transformamos tu visión digital</h1>
+                <p>Soluciones tecnológicas, desarrollo web y estrategias de marketing para potenciar tu marca.</p>
+                <a href="#servicios" class="btn-primary">Ver Catálogo</a>
+            </div>
+        </section>
+
+        <section id="servicios" class="seccion-servicios">
+            <h2>Nuestros Servicios</h2>
+            
+            <div class="filtros" id="contenedor-filtros">
+                <button class="btn-filtro activo" data-cat="Todos">Todos</button>
+                <button class="btn-filtro" data-cat="Desarrollo Web">Desarrollo Web</button>
+                <button class="btn-filtro" data-cat="Diseño UI/UX">Diseño UI/UX</button>
+                <button class="btn-filtro" data-cat="Marketing Digital">Marketing Digital</button>
+            </div>
+
+            <div id="grid-servicios" class="grid-servicios">
+                <!-- JS inyectará las 6 tarjetas aquí -->
+            </div>
+        </section>
+
+        <section id="contacto" class="seccion-contacto">
+            <div class="contacto-wrapper">
+                <h2>Solicita una Cotización</h2>
+                <form id="formulario-contacto" novalidate>
+                    <div class="campo">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Gómez">
+                    </div>
+                    
+                    <div class="campo">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="ana@ejemplo.com">
+                    </div>
+                    
+                    <div class="campo">
+                        <label for="tipo-servicio">Servicio de interés</label>
+                        <select id="tipo-servicio" name="tipo-servicio">
+                            <option value="">Selecciona una opción...</option>
+                            <option value="Desarrollo Web">Desarrollo Web</option>
+                            <option value="Diseño UI/UX">Diseño UI/UX</option>
+                            <option value="Marketing Digital">Marketing Digital</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Detalles de tu proyecto..."></textarea>
+                    </div>
+
+                    <div id="mensaje-feedback" class="feedback-oculto"></div>
+
+                    <button type="submit" class="btn-primary">Enviar Solicitud</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 TechNova - Examen Tecnologías Web II</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
